@@ -1,0 +1,33 @@
+<!DOCTYPE html> 
+<html>
+    <script type = "text/javascript"> 
+        var input=prompt("Input number of Chapters")
+        var name_inp;
+        var page_inp;
+        var names=[]
+        var pages=[]
+        var dots="00000000000000000000000000000000000000000000000000000000000000"
+        for (let i=1;i<=input;i++){
+            name_inp=prompt("Input Chapter name")
+            page_inp=prompt("Input page number")
+            var name_val=i+"."+name_inp
+            names.push(name_val)
+            pages.push(page_inp)
+        }
+        for (let i=0;i<names.length;i++){
+            var num=dots.length-names[i].length
+            var new_dots=dots.slice(0,num)
+            names[i]=names[i]+new_dots
+            names[i]=names[i].replace(/0/g, '*');
+        }
+        
+        for (let i=0;i<pages.length;i++){
+            pages[i]=(" 0000000000000000000" + pages[i]).slice(pages[i].length)
+            pages[i]=pages[i].replace(/0/g, '*');
+        }
+        for(let i=0;i<names.length;i++){
+            document.write(names[i]+pages[i]+"<br>")
+        }
+        
+        </script>
+</html>
